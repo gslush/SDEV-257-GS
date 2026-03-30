@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "flexible-rows-and-columns",
-    "slug": "flexible-rows-and-columns",
+    "name": "tab-navigation",
+    "slug": "tab-navigation",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
