@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, Platform, TouchableOpacity, Keyboard} from 'react-native';
 import Task from './components/Task';
@@ -18,6 +19,13 @@ export default function App() {
     setTaskItems(itemsCopy);
   }
 
+=======
+import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import Task from './components/Task';
+
+export default function App() {
+>>>>>>> 5227b1480e9d0af338ba08047fd61e47e0b83ceb
   return (
     <View style={styles.container}>
 
@@ -25,6 +33,7 @@ export default function App() {
         <Text style={styles.sectionTitle}>Today's tasks</Text>
 
         <View style={styles.items}>
+<<<<<<< HEAD
           {
             taskItems.map((item, index) => {
               return (
@@ -34,10 +43,15 @@ export default function App() {
               )
             })
           }
+=======
+          <Task text={'Task 1'} />
+          <Task text={'Task 2'} />
+>>>>>>> 5227b1480e9d0af338ba08047fd61e47e0b83ceb
         </View>
 
       </View>
 
+<<<<<<< HEAD
 
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -52,6 +66,8 @@ export default function App() {
         </TouchableOpacity>
       </KeyboardAvoidingView>
 
+=======
+>>>>>>> 5227b1480e9d0af338ba08047fd61e47e0b83ceb
     </View>
   );
 }
@@ -72,6 +88,7 @@ const styles = StyleSheet.create({
   items: {
     marginTop: 30,
   },
+<<<<<<< HEAD
   writeTaskWrapper: {
     position: 'absolute',
     bottom: 60,
@@ -100,4 +117,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   addText: {},
+=======
+>>>>>>> 5227b1480e9d0af338ba08047fd61e47e0b83ceb
 });
