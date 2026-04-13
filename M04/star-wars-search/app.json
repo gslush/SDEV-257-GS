@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "star-wars",
-    "slug": "star-wars",
+    "name": "star-wars-search",
+    "slug": "star-wars-search",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

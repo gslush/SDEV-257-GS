@@ -1,11 +1,35 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TextInput, Modal, Button } from "react-native";
 import styles from "./styles";
 
-export default function Spaceships({ navigation }) {
+export default function Spaceships() {
+  const [searchText, setSearchText] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <Text>Spaceships</Text>
+    <View style={{ flex: 1 }}>
+      <View style={styles.topContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Search Spaceships..."
+          onChangeText={setSearchText}
+          onSubmitEditing={() => setModalVisible(true)}
+          value={searchText}
+        />
+      </View>
+
+      <View style={styles.centerContainer}>
+        <Text style={{ fontSize: 24 }}>Spaceships</Text>
+      </View>
+
+      <Modal visible={modalVisible} transparent={true} animationType="fade">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={{ marginBottom: 15 }}>Search term: {searchText}</Text>
+            <Button title="Close" onPress={() => setModalVisible(false)} />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
