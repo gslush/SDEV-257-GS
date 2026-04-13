@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "star-wars-api",
-    "slug": "star-wars-api",
+    "name": "geo-location",
+    "slug": "geo-location",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
