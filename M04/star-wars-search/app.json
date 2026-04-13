@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "geo-location",
-    "slug": "geo-location",
+    "name": "star-wars",
+    "slug": "star-wars",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
