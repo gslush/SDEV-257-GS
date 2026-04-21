@@ -13,6 +13,11 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  headerImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'cover',
+  },
   title: {
     fontSize: 18,
     textAlign: "center",

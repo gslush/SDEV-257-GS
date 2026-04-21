@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, ActivityIndicator, Alert, Pressable } from 'react-native';
+import { View, Text, ScrollView, ActivityIndicator, Alert, Pressable, Image } from 'react-native';
 import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 import styles from './styles';
 
@@ -22,6 +22,10 @@ export default function Films() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <Image 
+          source={{ uri: 'https://static.wikia.nocookie.net/starwars/images/c/cc/Star-wars-logo-new-tall.jpg/revision/latest?cb=20190313021755' }} 
+          style={styles.headerImage} 
+        />
         {isLoading ? <ActivityIndicator size="large" /> : (
           <ScrollView style={{ width: '100%' }}>
             {films.map((item) => (
