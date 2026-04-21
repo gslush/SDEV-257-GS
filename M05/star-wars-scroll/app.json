@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "star-wars-search",
-    "slug": "star-wars-search",
+    "name": "star-wars-api",
+    "slug": "star-wars-api",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

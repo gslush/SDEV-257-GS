@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -12,7 +13,7 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      {Platform.OS === "ios" && (
+      {Platform.OS === 'ios' && (
         <Tab.Navigator>
           <Tab.Screen name="Planets" component={Home} />
           <Tab.Screen name="Films" component={News} />
@@ -20,8 +21,8 @@ export default function App() {
         </Tab.Navigator>
       )}
 
-      {Platform.OS == "android" && (
-        <Drawer.Navigator>
+      {Platform.OS == 'android' && (
+        <Drawer.Navigator useLegacyImplementation={false}>
           <Drawer.Screen name="Planets" component={Home} />
           <Drawer.Screen name="Films" component={News} />
           <Drawer.Screen name="Spaceships" component={Settings} />
