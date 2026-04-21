@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "star-wars-scroll",
-    "slug": "star-wars-scroll",
+    "name": "star-wars-animation",
+    "slug": "star-wars-animation",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

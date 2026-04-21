@@ -15,9 +15,10 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 18,
+    textAlign: "center",
+  },
+  titleBold: {
     fontWeight: 'bold',
-    alignItems: "center",
-    justifyContent: "center",
   },
   swipeAction: {
     backgroundColor: '#3498db',

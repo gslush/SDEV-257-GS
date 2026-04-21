@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, ScrollView, ActivityIndicator, Alert, Pressable } from 'react-native';
 import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 import styles from './styles';
 
@@ -26,10 +26,18 @@ export default function Films() {
           <ScrollView style={{ width: '100%' }}>
             {films.map((item) => (
               <Swipeable key={item.uid} renderRightActions={renderRightActions}onSwipeableOpen={() => Alert.alert("Film Title", item.properties.title)}>
-                <View style={styles.itemContainer}>
-                  <Text style={styles.title}>{item.properties.title}</Text>
-                  <Text>Episode: {item.properties.episode_id}</Text>
-                </View>
+                <Pressable>
+                  {({ pressed }) => (
+                    <View style={styles.itemContainer}>
+                      <Text style={[styles.title, pressed && styles.titleBold]}>
+                        {item.name || item.properties.title}
+                      </Text>
+                        {item.properties?.episode_id && (
+                        <Text>Episode: {item.properties.episode_id}</Text>
+                      )}
+                    </View>
+                  )}
+                </Pressable>
               </Swipeable>
             ))}
           </ScrollView>
