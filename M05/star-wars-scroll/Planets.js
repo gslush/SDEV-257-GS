@@ -1,36 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, ActivityIndicator } from "react-native";
-import styles from "./styles";
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView, ActivityIndicator, Alert } from 'react-native';
+import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
+import styles from './styles';
 
 export default function Planets() {
   const [planets, setPlanets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://www.swapi.tech/api/planets")
-      .then((response) => response.json())
-      .then((json) => {
-        setPlanets(json.results);
-      })
-      .catch((error) => console.error(error))
+    fetch('https://www.swapi.tech/api/planets')
+      .then((res) => res.json())
+      .then((json) => setPlanets(json.results))
+      .catch((err) => console.error(err))
       .finally(() => setIsLoading(false));
   }, []);
 
+  const renderRightActions = () => (
+    <View style={styles.swipeAction}><Text style={styles.swipeText}>Info</Text></View>
+  );
+
   return (
-    <View style={styles.container}>
-      {isLoading ? (
-        <ActivityIndicator size="large"/>
-      ) : (
-        <FlatList
-          data={planets}
-          keyExtractor={(item) => item.uid}
-          renderItem={({ item }) => (
-            <View style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ccc' }}>
-              <Text style={{ fontSize: 18 }}>{item.name}</Text>
-            </View>
-          )}
-        />
-      )}
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        {isLoading ? <ActivityIndicator size="large" /> : (
+          <ScrollView style={{ width: '100%' }}>
+            {planets.map((item) => (
+              <Swipeable key={item.uid} renderRightActions={renderRightActions}onSwipeableOpen={() => Alert.alert("Planet Info", item.name)}>
+                <View style={styles.itemContainer}>
+                  <Text style={styles.title}>{item.name}</Text>
+                </View>
+              </Swipeable>
+            ))}
+          </ScrollView>
+        )}
+      </View>
+    </GestureHandlerRootView>
   );
 }
