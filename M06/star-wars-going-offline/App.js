@@ -1,8 +1,11 @@
+import React, { useState, useEffect } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Platform } from "react-native";
+import { View, Text, Platform, SafeAreaView } from "react-native";
+import NetInfo from "@react-native-community/netinfo";
+import styles from './styles';
 import Home from "./Planets";
 import News from "./Films";
 import Settings from "./Spaceships";
@@ -11,8 +14,27 @@ const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const [isConnected, setIsConnected] = useState(true);
+
+  useEffect(() => {
+    NetInfo.fetch().then(state => {
+      setIsConnected(state.isConnected);
+    });
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setIsConnected(state.isConnected);
+    });
+    return () => unsubscribe();
+  }, []);
+
   return (
-    <NavigationContainer>
+    <View style={{ flex: 1 }}>
+      {!isConnected && (
+        <SafeAreaView style={styles.offlineContainer}>
+          <Text style={styles.offlineText}>No Internet Connection</Text>
+        </SafeAreaView>
+      )}
+
+      <NavigationContainer>
       {Platform.OS === 'ios' && (
         <Tab.Navigator>
           <Tab.Screen name="Planets" component={Home} />
@@ -29,5 +51,6 @@ export default function App() {
         </Drawer.Navigator>
       )}
     </NavigationContainer>
+    </View>
   );
 }

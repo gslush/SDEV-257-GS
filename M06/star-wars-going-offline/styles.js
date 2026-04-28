@@ -35,4 +35,17 @@ export default StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
+  offlineContainer: {
+    backgroundColor: '#b00020',
+    paddingVertical: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    zIndex: 1000,
+  },
+  offlineText: { 
+    color: '#fff', 
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
 });

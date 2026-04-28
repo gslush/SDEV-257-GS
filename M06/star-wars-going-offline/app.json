@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "star-wars-image",
-    "slug": "star-wars-image",
+    "name": "star-wars-going-offline",
+    "slug": "star-wars-going-offline",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
