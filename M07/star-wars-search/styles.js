@@ -5,6 +5,19 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  searchContainer: {
+    padding: 10,
+    backgroundColor: '#f8f8f8',
+  },
+  searchInput: {
+    height: 45,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    paddingHorizontal: 15,
+    borderRadius: 8,
+    backgroundColor: '#fff',
+    fontSize: 16,
+  },
   itemContainer: {
     padding: 20,
     backgroundColor: 'white',
