@@ -9,6 +9,7 @@ import styles from './styles';
 import Home from "./Planets";
 import News from "./Films";
 import Settings from "./Spaceships";
+import PlanetDetail from "./PlanetDetail";
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -35,22 +36,24 @@ export default function App() {
       )}
 
       <NavigationContainer>
-      {Platform.OS === 'ios' && (
-        <Tab.Navigator>
-          <Tab.Screen name="Planets" component={Home} />
-          <Tab.Screen name="Films" component={News} />
-          <Tab.Screen name="Spaceships" component={Settings} />
-        </Tab.Navigator>
-      )}
+        {Platform.OS === 'ios' && (
+          <Tab.Navigator>
+            <Tab.Screen name="Planets" component={Home} />
+            <Tab.Screen name="Films" component={News} />
+            <Tab.Screen name="Spaceships" component={Settings} />
+            <Tab.Screen name="PlanetDetail" component={PlanetDetail} options={{ tabBarButton: () => null }} />
+          </Tab.Navigator>
+        )}
 
-      {Platform.OS == 'android' && (
-        <Drawer.Navigator useLegacyImplementation={false}>
-          <Drawer.Screen name="Planets" component={Home} />
-          <Drawer.Screen name="Films" component={News} />
-          <Drawer.Screen name="Spaceships" component={Settings} />
-        </Drawer.Navigator>
-      )}
-    </NavigationContainer>
+        {Platform.OS == 'android' && (
+          <Drawer.Navigator useLegacyImplementation={false}>
+            <Drawer.Screen name="Planets" component={Home} />
+            <Drawer.Screen name="Films" component={News} />
+            <Drawer.Screen name="Spaceships" component={Settings} />
+            <Drawer.Screen name="PlanetDetail" component={PlanetDetail} options={{ drawerItemStyle: { display: 'none' } }} />
+          </Drawer.Navigator>
+        )}
+      </NavigationContainer>
     </View>
   );
 }

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, ActivityIndicator, Pressable, Image, Alert, TextInput } from 'react-native';
+import { View, Text, ScrollView, ActivityIndicator, Pressable, Image, TextInput } from 'react-native';
 import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 import styles from './styles';
 
-export default function Planets() {
+export default function Planets({navigation}) {
   const [planets, setPlanets] = useState([]);
   const [filteredPlanets, setFilteredPlanets] = useState([]);
   const [search, setSearch] = useState('');
@@ -51,7 +51,7 @@ export default function Planets() {
         {isLoading ? <ActivityIndicator size="large" /> : (
           <ScrollView style={{ width: '100%' }}>
             {filteredPlanets.map((item) => (
-              <Swipeable key={item.uid} renderRightActions={renderRightActions} onSwipeableOpen={() => Alert.alert("Planet Info", item.name)}>
+              <Swipeable key={item.uid} renderRightActions={renderRightActions} onSwipeableOpen={() => navigation.navigate("PlanetDetail", { uid: item.uid })}>
                 <Pressable>
                   {({ pressed }) => (
                     <View style={styles.itemContainer}>
